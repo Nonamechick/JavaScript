@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h2>JS try catch</h2>
+        <p>please input a  number between 5 and 10:</p>
+        <input type="text"  id="1">
+        <button type="button" onclick="myFunc()">Test Input</button>
+        <p id="2"></p>
+        <script>
+         function myFunc() {
+            const message = document.getElementById("2");
+            message.innerHTML = "";
+            let x = document.getElementById("1").value;
+            try {
+                if(x.trim()=="") throw "empty";
+                if(isNaN(x)) throw "not a number";
+                x = Number(x);
+                if(x<5) throw "too low";
+                if(x>10) throw "too high";
+            } 
+            catch(err) {
+                message.innerHTML = "Input is " + err;
+            }
+            finally {
+                document.getElementById('1').value = "";
+            }
+         }
+        </script>
+    </body>
+</html>
