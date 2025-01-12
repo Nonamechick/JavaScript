@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head><title>JS Destructing</title></head>
+    <body>
+        <h1>JS Destructing</h1>
+        <h2>Object Destructing</h2>
+        <h2>String Destructing</h2>
+        <p id="1"></p>
+        <p id="2"></p>
+        <p id="3"></p>
+        <h1>JS Arrays</h1>
+        <h2>Array Destructing</h2>
+        <p>Move array variables into single variables:</p>
+        <p id="4"></p>
+        <p>We can pick up values from specific index locations of an array:</p>
+        <p id="5"></p>
+        <p id="6"></p>
+        <p>Move array variables into single variables</p>
+        <p id="7"></p>
+        <h2>Swapping Variables</h2>
+        <p id="8"></p>
+        <script>
+            const fruits = ["Bananas","Oranges","Apples","Mangos"];
+            let [fruit1, fruit2] = fruits;
+            let nam = "Kotak";
+            const person = {
+                firstname: "Jo",
+                lastname: "Jo",
+                age: 55
+            };
+            const {[0]:fruit3, [1]:fruit4} = fruits;
+            let {firstname, lastname, country = "Korea"} = person;
+            let {lastname: name} = person;
+            document.getElementById("1").innerHTML = firstname+" "+lastname+" "+country;
+            document.getElementById("2").innerHTML = name;
+            let [a1,a2,a3,a4,a5] = nam;
+            document.getElementById("3").innerHTML = a1;
+            document.getElementById("4").innerHTML = fruit1 + " "+fruit2;
+            document.getElementById("5").innerHTML = fruit3+" "+fruit4;
+            const numbers = [10,20,30,40,50,60,70];
+            const [a, b, ...rest ] = numbers;
+            document.getElementById("6").innerHTML = "<p>a is " + a + "<p>b is "+b+"<p>the rest is "+rest;
+            const fruits1 = new Map([
+                ["apples",500],
+                ['bananas',300],
+                ["oranges",200]
+            ]);
+            let text = "";
+            for (const [key, value] of fruits1) {
+                text+="<p>"+key+" is "+value;
+            } 
+            document.getElementById("7").innerHTML = text;
+            [firstname,lastname] = [lastname,firstname];
+            document.getElementById("8").innerHTML = firstname+" "+lastname;
+        </script>
+    </body>
+</html>
